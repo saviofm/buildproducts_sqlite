@@ -1,0 +1,112 @@
+_schema-version: "3.1"
+ID: buildproducts
+description: A simple CAP project.
+version: 1.0.1
+parameters:
+  ###deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install --production
+    - npx -p @sap/cds-dk cds build --production
+
+
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------MODULES-----------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+modules:
+
+# --------------------- CAP SERVER MODULE ------------------------
+- name: buildproducts-srv
+# ----------------------------------------------------------------
+  type: nodejs
+  path: gen/srv
+  properties:
+    SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
+  requires:
+  # Resources extracted from CAP configuration
+  - name: buildproducts-xsuaa-service
+  - name: buildproducts-destination-service
+    parameters:
+      content-target: true
+  provides:
+  - name: srv-api # required by consumers of CAP services (e.g. approuter)
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+    disk-quota: 512M
+    memory: 256M
+
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ---------------------------RESOURCES----------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+resources:
+
+# ------------------------ XSUAA Service -------------------------  
+- name: buildproducts-xsuaa-service
+# ----------------------------------------------------------------
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: buildproducts-xsuaa-service
+    service-plan: application
+
+# ----------------- Destination Service -------------------   
+- name: buildproducts-destination-service
+# ---------------------------------------------------------
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      ##HTML5Runtime_enabled: true
+      init_data:
+        subaccount:
+          destinations:
+          - Authentication: NoAuthentication
+            Description: CAP Build Products Destination Service
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            HTML5.Timeout: 300000
+            WebIDEEnabled: true
+            AppgyverEnabled: true
+            Name: buildproducts
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url} 
+          - Authentication: NoAuthentication
+            Description: CAP Build Products Rest
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            HTML5.Timeout: 300000
+            WebIDEEnabled: true
+            AppgyverEnabled: true
+            Name: buildproducts_rest
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}/catalog-rest 
+          - Authentication: NoAuthentication
+            Description: CAP Build Products Odata
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            HTML5.Timeout: 300000
+            WebIDEEnabled: true
+            AppgyverEnabled: true
+            Name: buildproducts_odata
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}/catalog          
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: buildproducts-destination-service
+    service-plan: lite
+  requires:
+  - name: srv-api
+
