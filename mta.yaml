@@ -9,7 +9,6 @@ build-parameters:
   before-all:
   - builder: custom
     commands:
-    - npm install --production
     - npx -p @sap/cds-dk cds build --production
 
 
@@ -41,6 +40,8 @@ modules:
     buildpack: nodejs_buildpack
     disk-quota: 512M
     memory: 256M
+  build-parameters:
+    builder: npm-ci
 
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
@@ -101,7 +102,18 @@ resources:
             Name: buildproducts_odata
             ProxyType: Internet
             Type: HTTP
-            URL: ~{srv-api/srv-url}/catalog          
+            URL: ~{srv-api/srv-url}/catalog
+          - Authentication: NoAuthentication
+            Description: CAP Build Products Odata v2
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            HTML5.Timeout: 300000
+            WebIDEEnabled: true
+            AppgyverEnabled: true
+            Name: buildproducts_odata
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}/v2/catalog                         
           existing_destinations_policy: update
       version: 1.0.0
     service: destination

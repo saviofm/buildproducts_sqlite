@@ -1,5 +1,5 @@
 {
-    "xsappname": "productstrainning",
+    "xsappname": "buildproducts",
     "tenant-mode": "dedicated",
     "description": "Security profile of called application",
     "scopes": [        

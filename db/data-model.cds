@@ -8,7 +8,7 @@ using {
 } from '@sap/cds/common';
 
 
-namespace productstrainning;
+namespace buildproducts;
 
 //----------------------- PRODUCTS  ---------------------//
 //------------------------------------------------------//

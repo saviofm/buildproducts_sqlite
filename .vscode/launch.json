@@ -1,0 +1,442 @@
+{
+  "configurations": [
+    {
+      "command": "cds run --with-mocks",
+      "name": "cds run",
+      "request": "launch",
+      "type": "node-terminal",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Start uld",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/uld",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandbox.html#capdemogruappuld-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/uld\"}"
+      }
+    },
+    {
+      "name": "Start uld Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/uld",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandboxMockServer.html#capdemogruappuld-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/uld\"}"
+      }
+    },
+    {
+      "name": "Start uld Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/uld",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "'test/flpSandbox.html#capdemogruappuld-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/uld\"}"
+      }
+    },
+    {
+      "name": "Start parcel",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/parcel",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandbox.html#parcel-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/parcel\"}"
+      }
+    },
+    {
+      "name": "Start parcel Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/parcel",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandboxMockServer.html#parcel-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/parcel\"}"
+      }
+    },
+    {
+      "name": "Start parcel Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/parcel",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "'test/flpSandbox.html#parcel-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/parcel\"}"
+      }
+    },
+    {
+      "name": "Start cargoreceipt",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/cargoreceipt",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandbox.html#capdemogruappcargoreceipt-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/cargoreceipt\"}"
+      }
+    },
+    {
+      "name": "Start cargoreceipt Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/cargoreceipt",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandboxMockServer.html#capdemogruappcargoreceipt-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/cargoreceipt\"}"
+      }
+    },
+    {
+      "name": "Start cargoreceipt Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/cargoreceipt",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "'test/flpSandbox.html#capdemogruappcargoreceipt-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/capdemogru/cargoreceipt\"}"
+      }
+    },
+    {
+      "name": "Start schedulecrud",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/app/schedulecrud",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecrud-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/app/schedulecrud\"}"
+      }
+    },
+    {
+      "name": "Start schedulecrud Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/app/schedulecrud",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecrud-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/app/schedulecrud\"}"
+      }
+    },
+    {
+      "name": "Start schedulecrud Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/app/schedulecrud",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecrud-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/app/schedulecrud\"}"
+      }
+    },
+    {
+      "name": "Start schedulecrea Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/schedulecrea",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecrea-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/schedulecrea\"}"
+      }
+    },
+    {
+      "name": "Start schedulecrea Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/schedulecrea",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecrea-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/schedulecrea\"}"
+      }
+    },
+    {
+      "name": "Start schedulecreate Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/schedulecreate",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecreate-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/schedulecreate\"}"
+      }
+    },
+    {
+      "name": "Start schedulecreate Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/schedulecreate",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html#sapxpspappschedulecreate-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sapxpsp/schedulecreate\"}"
+      }
+    }
+  ],
+  "compounds": [],
+  "inputs": [
+    {
+      "id": "UI5Version",
+      "type": "command",
+      "command": "sap.ux.appGenerator.ui5Version"
+    }
+  ],
+  "version": "0.2.0"
+}

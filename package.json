@@ -6,60 +6,27 @@
     "license": "UNLICENSED",
     "private": true,
     "dependencies": {
-        "@sap/cds": "5.9.1",
-        "@sap/cds-dk": "4.9.1",
-        "@sap/cds-odata-v2-adapter-proxy": "1.8.11",
-        "@sap/textbundle": "4.1.0",
-        "@sap/xsenv": "3.2.1",
-        "@sap/xssec": "3.2.13",
-        "cds-swagger-ui-express": "^0.3.0",
-        "@types/node-fetch": "^2.6.1",
-        "cors": "^2.8.5",
+        "@sap/cds": "7.0.x",
+        "@sap/cds-odata-v2-adapter-proxy": "1.9.21",
+        "@sap/textbundle": "4.2.0",
+        "@sap/xsenv": "3.4.0",
+        "@sap/xssec": "3.2.17",
+        "cds-swagger-ui-express": "^0.6.0",
         "express": "^4",
-        "hdb": "0.19.1",
-        "passport": "^0.5.2"
+        "hdb": "^0.19.1",
+        "passport": "^0.6.0"
     },
     "devDependencies": {
-        "@sap/cds-compiler": "2.12.0",
-        "@sap/eslint-plugin-cds": "2.3.3",
-        "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
-        "@sap/hdi-deploy": "^4.2.3",
-        "@sap/ux-specification": "^1.96.2",
-        "@sapui5/ts-types": "^1.92.2",
-        "eslint": "^7.32.0"
+        "@sap/ux-specification": "^1.108.9",
+        "sqlite3": "^5"
     },
     "engines": {
         "node": "16.x.x",
         "npm": "8.x.x"
     },
     "scripts": {
-        "start": "cds run",
+        "start": "cds-serve",
         "undeploy": "cf undeploy buildproducts --delete-services --delete-service-keys"
-    },
-    "eslintConfig": {
-        "extends": "eslint:recommended",
-        "env": {
-            "es2020": true,
-            "node": true,
-            "jest": true,
-            "mocha": true
-        },
-        "globals": {
-            "SELECT": true,
-            "INSERT": true,
-            "UPDATE": true,
-            "DELETE": true,
-            "CREATE": true,
-            "DROP": true,
-            "CDL": true,
-            "CQL": true,
-            "CXL": true,
-            "cds": true
-        },
-        "rules": {
-            "no-console": "off",
-            "require-atomic-updates": "off"
-        }
     },
     "cds": {
         "i18n": {
@@ -69,20 +36,20 @@
             ]
         },
         "requires": {
+            "auth": {
+                "kind": "dummy-auth"
+            },
             "db": {
                 "model": [
                     "db",
                     "srv"
                 ],
-                "kind": "sqlite",
+                "kind": "sql",
                 "pool": {
                     "acquireTimeoutMillis": 600000,
                     "min": 0,
                     "max": 600000
                 }
-            },
-            "uaa": {
-                "kind": "xsuaa"
             }
         }
     }
