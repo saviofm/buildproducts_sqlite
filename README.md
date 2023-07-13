@@ -9,7 +9,7 @@ rodar os comandos:
 
 >mbt build
 
->cf deploy <arquivo mtar gerado>
+>cf deploy <arquivomtargerado>
 
 Para cadastrar o produto, rodar uma function (pode ser via browser)
 https::<aplicação>/odata/v4/catalog/loadProductsGet(update='X')
